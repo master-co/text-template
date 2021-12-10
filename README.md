@@ -5,7 +5,8 @@
 <p align="center">
     <b>text-template</b>
 </p>
-<p align="center">An useful and convenient text template engine</p>
+<p align="center">Tokenize any texts and render with data</p>
+<p align="center"><i>readme, html, mail template any piece of text ...</i></p>
 <p align="center">
 <a href="https://circleci.com/gh/master-style/workflows/master-style/tree/main">
 <img src="https://img.shields.io/circleci/build/github/master-style/text-template/main.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />

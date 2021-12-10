@@ -1,7 +1,7 @@
 {
     "name": "@master/text-template",
     "license": "MIT",
-    "description": "An useful and convenient text template engine",
+    "description": "Tokenize any texts and render with data",
     "main": "index.js",
     "private": false,
     "repository": {
