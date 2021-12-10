@@ -14,17 +14,15 @@ function escapeRegex(string) {
 }
 
 export class MasterTextTemplate {
-    options: MasterTemplateOptions = {
-        start: '{{',
-        end: '}}',
-        language: '',
-        slotStart: '',
-        slotEnd: ''
-    };
-
     constructor(
         private sourceString: string,
-        options?: MasterTemplateOptions
+        public options: MasterTemplateOptions = {
+            start: '{{',
+            end: '}}',
+            language: '',
+            slotStart: '',
+            slotEnd: ''
+        }
     ) {
         if (options) {
             Object.assign(this.options, options);
@@ -34,7 +32,7 @@ export class MasterTextTemplate {
     render(data: Record<string, any>) {
         if (!this.sourceString)
             return '';
-        
+
         const options = this.options; // for less file size
 
         const keys = Object.keys(data),
