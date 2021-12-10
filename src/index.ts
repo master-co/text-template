@@ -31,7 +31,7 @@ export class MasterTextTemplate {
         }
     }
 
-    compile(data: Record<string, any>) {
+    render(data: Record<string, any>) {
         if (!this.sourceString)
             return '';
         
