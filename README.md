@@ -3,17 +3,17 @@
     <img src="https://raw.githubusercontent.com/master-style/package/document/images/logo-and-text.svg" alt="logo" width="142">
 </p>
 <p align="center">
-    <b>{{ name }}</b>
+    <b>text-template</b>
 </p>
-<p align="center">{{ package.description }}</p>
+<p align="center">An useful and convenient text template engine</p>
 <p align="center">
-<a href="https://circleci.com/gh/{{ github.orgName }}/workflows/{{ github.orgName }}/tree/main">
-<img src="https://img.shields.io/circleci/build/github/{{ github.orgName }}/{{ name }}/main.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
+<a href="https://circleci.com/gh/master-style/workflows/master-style/tree/main">
+<img src="https://img.shields.io/circleci/build/github/master-style/text-template/main.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status" />
 </a>&nbsp;
-<a href="https://www.npmjs.com/{{ package.name }}">
-<img src="https://img.shields.io/npm/v/{{ package.name }}.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Angular on npm" />
+<a href="https://www.npmjs.com/@master/text-template">
+<img src="https://img.shields.io/npm/v/@master/text-template.svg?logo=npm&logoColor=fff&label=NPM+package&color=limegreen" alt="Angular on npm" />
 </a>&nbsp;
-<a href="https://github.com/{{ github.orgName }}/{{ name }}/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/{{ github.orgName }}/{{ name }}"></a>
+<a href="https://github.com/master-style/text-template/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/master-style/text-template"></a>
 </p>
 
 ###### CONTENTS
@@ -23,10 +23,11 @@
 
 # Install
 ```sh
-npm install {{ package.name }}
+npm install @master/text-template
 ```
 ## CDN
-- [jsdelivr](https://www.jsdelivr.com/package/npm/{{ package.name }})
-- [unpkg](https://unpkg.com/{{ package.name }})
+- [jsdelivr](https://www.jsdelivr.com/package/npm/@master/text-template)
+- [unpkg](https://unpkg.com/@master/text-template)
 
 # Usage
+🚧 *comming soon ...*

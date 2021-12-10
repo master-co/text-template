@@ -1,11 +1,26 @@
 {
-  "name": "@master/text-template",
-  "license": "MIT",
-  "main": "index.js",
-  "private": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/master-style/text-template.git"
-  },
-  "types": "index.d.ts"
+    "name": "@master/text-template",
+    "license": "MIT",
+    "description": "An useful and convenient text template engine",
+    "main": "index.js",
+    "private": false,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/master-style/text-template.git"
+    },
+    "keywords": [
+        "template",
+        "readme",
+        "engine",
+        "text",
+        "string",
+        "token",
+        "replace",
+        "comment",
+        "slot",
+        "html",
+        "ejs",
+        "handlebars"
+    ],
+    "types": "index.d.ts"
 }
