@@ -61,12 +61,12 @@ export class TextTemplate {
                 const slotStart = escapeRegex(eachSlotSE[0]),
                     slotEnd = escapeRegex(eachSlotSE[1]);
                 result = result.replace(
-                    new RegExp(slotStart + '(.*?)' + slotEnd + '(.*?)' + slotStart + slotEnd, 'gm'),
+                    new RegExp(slotStart + '(.*?)' + slotEnd + '(.*?)' + slotStart + slotEnd, 'gms'),
                     (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
             }
         } else {
             result = this.sourceString.replace(
-                new RegExp(escapeRegex(options.start) + '(.*?)' + escapeRegex(options.end), 'gm'),
+                new RegExp(escapeRegex(options.start) + '(.*?)' + escapeRegex(options.end), 'gms'),
                 (_, v1: string) => getValue(v1.trim()));
         }
 
