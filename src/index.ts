@@ -14,14 +14,7 @@ function escapeRegex(string) {
 }
 
 export class TextTemplate {
-    options: TemplateOptions = {
-        start: '{{',
-        end: '}}',
-        language: '',
-        slotStart: '',
-        slotEnd: '',
-        behavior: ''
-    };
+    options: TemplateOptions = {};
 
     constructor(
         private text: string,
@@ -54,19 +47,21 @@ export class TextTemplate {
             };
 
         if (options.behavior === 'slot') {
-            const slotSEs = options.slotStart && options.slotEnd
-                ? [[options.slotStart, options.slotEnd]]
+            const slotSEs = options.start && options.end
+                ? [[options.start, options.end]]
                 : commentSyntaxesMap[(options.language in commentSyntaxesMap) ? options.language : ''];
             for (const eachSlotSE of slotSEs) {
-                const slotStart = escapeRegex(eachSlotSE[0]),
-                    slotEnd = escapeRegex(eachSlotSE[1]);
+                const start = escapeRegex(eachSlotSE[0]),
+                    end = escapeRegex(eachSlotSE[1]);
                 result = result.replace(
-                    new RegExp(slotStart + '(.*?)' + slotEnd + '(.*?)' + slotStart + slotEnd, 'gms'),
+                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + end, 'gms'),
                     (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
             }
         } else {
+            const start = options.start || '{{';
+            const end = options.end || '}}';
             result = this.text.replace(
-                new RegExp(escapeRegex(options.start) + '(.*?)' + escapeRegex(options.end), 'gms'),
+                new RegExp(escapeRegex(start) + '(.*?)' + escapeRegex(end), 'gms'),
                 (_, v1: string) => getValue(v1.trim()));
         }
 
