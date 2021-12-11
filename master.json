@@ -1,4 +1,8 @@
 {
+    "name": "text-template",
+    "github": {
+        "name": "master-style"
+    },
     "assets": [
         "src/package.json",
         "README*",
