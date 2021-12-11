@@ -24,7 +24,7 @@ export class TextTemplate {
     };
 
     constructor(
-        private sourceString: string,
+        private text: string,
         options?: TemplateOptions
     ) {
         if (options) {
@@ -33,10 +33,10 @@ export class TextTemplate {
     }
 
     render(data: Record<string, any>) {
-        if (!this.sourceString)
+        if (!this.text)
             return '';
 
-        let result = this.sourceString;
+        let result = this.text;
 
         const options = this.options, // for less file size
             keys = Object.keys(data),
@@ -65,7 +65,7 @@ export class TextTemplate {
                     (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
             }
         } else {
-            result = this.sourceString.replace(
+            result = this.text.replace(
                 new RegExp(escapeRegex(options.start) + '(.*?)' + escapeRegex(options.end), 'gms'),
                 (_, v1: string) => getValue(v1.trim()));
         }
