@@ -66,7 +66,7 @@ export class TextTemplate {
             }
         } else {
             result = this.sourceString.replace(
-                new RegExp(options.start + '(.*?)' + options.end, 'gm'),
+                new RegExp(escapeRegex(options.start) + '(.*?)' + escapeRegex(options.end), 'gm'),
                 (_, v1: string) => getValue(v1.trim()));
         }
 
