@@ -1,4 +1,4 @@
-import { MasterTemplateOptions } from './interfaces/options';
+import { TemplateOptions } from './interfaces/options';
 
 const commentSyntaxesMap = {
     pascal: [['(*', '*)'], ['{', '}']],
@@ -13,8 +13,8 @@ function escapeRegex(string) {
     return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
 
-export class MasterTextTemplate {
-    options: MasterTemplateOptions = {
+export class TextTemplate {
+    options: TemplateOptions = {
         start: '{{',
         end: '}}',
         language: '',
@@ -24,7 +24,7 @@ export class MasterTextTemplate {
 
     constructor(
         private sourceString: string,
-        options?: MasterTemplateOptions
+        options?: TemplateOptions
     ) {
         if (options) {
             Object.assign(this.options, options);
