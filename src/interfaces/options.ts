@@ -4,4 +4,5 @@ export interface TemplateOptions {
     language?: 'html' | 'readme' | 'pascal' | 'forth' | 'haskell' | '';
     slotStart?: string;
     slotEnd?: string;
+    behavior?: '' |'slot'
 };
