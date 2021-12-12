@@ -4,6 +4,7 @@
     "description": "Tokenize any texts and render with data",
     "main": "index.js",
     "private": false,
+    "funding": "https://opencollective.com/master-style",
     "repository": {
         "type": "git",
         "url": "https://github.com/master-style/text-template.git"

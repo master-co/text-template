@@ -128,20 +128,20 @@ output `renderedText`
 # Remove token when errors occur
 `removeOnError: true`
 ```ts
-const text = 'Hi {{ username }}';
+const text = 'Hi {{ username }}, welcome.';
 const data = {};
 const t1 = new TextTemplate(text);
 const t2 = new TextTemplate(text, { removeOnError: true });
-const t1Result = t1.render(data);
-const t2Result = t2.render(data);
+const r1 = t1.render(data);
+const r2 = t2.render(data);
 ```
-output `t1Result`
+output `r1`
 ```
-Hi {{ username }}
+Hi {{ username }}, welcome.
 ```
-output `t2Result`
+output `r2`
 ```
-Hi 
+Hi , welcome.
 ```
 
 # Options
