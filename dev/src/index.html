@@ -5,12 +5,20 @@
     <title>
         <%= '[dev] ' + htmlWebpackPlugin.options.title %>
     </title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown-dark.min.css"
+          integrity="sha512-USRvpT7dJFA7mrRx4+esmy+2mYr8vlgmDLFpkNeVEd+D5CgQvULKPYVnDV97Ywfek+e//HdSA0NlaPe4oqkwfQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 
-<body style="box-sizing: border-box;">
+<body class="markdown-body">
     <div id="rendered-readme"
-         class="markdown-body"
-         style="width: 600px; padding: 2rem; margin: auto">
+         style="width: 900px; padding: 2rem; margin: auto">
     </div>
 </body>
 

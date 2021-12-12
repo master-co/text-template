@@ -16,7 +16,7 @@
   - [Replace with data tokens](#replace-with-data-tokens)
   - [Insert with slot tokens](#insert-with-slot-tokens)
   - [Combo above behaviors](#combo-above-behaviors)
-- [Custom `start` and `end` token](#custom-start-and-end-token)
+- [Custom your `start` and `end` token](#custom-your-start-and-end-token)
 - [Tokenize with js syntax](#tokenize-with-js-syntax)
 - [Options](#options)
 
@@ -34,9 +34,18 @@ npm install @master/text-template
 ```ts
 import { TextTemplate } from '@master/text-template';
 ```
+default options overview
+```ts
+const template = new TextTemplate(text, {
+    start: undefined, // '{{'
+    end: undefined, // '}}'
+    behavior: undefined, // replace
+    language: undefined, // /* data */ /* */,
+    removeOnError: undefined // false
+});
+```
 
 ## Replace with data tokens
-default behavior
 ```ts
 const template = new TextTemplate('Hi {{ username }}');
 const renderedText = template.render({ username: 'Aron' });
@@ -93,7 +102,7 @@ output `renderedReadmeText`:
 <!-- description -->Hello World<!-- -->
 ```
 
-# Custom `start` and `end` token
+# Custom your `start` and `end` token
 ```ts
 const template = new TextTemplate('Hi ${ username }', {
     start: '${',
@@ -119,10 +128,11 @@ output `renderedText`
 - `start` replace or slot start token
 - `end` replace or slot end token
 - `behavior` specify render behavior
-- `languages` require `behavior: 'slot'`. Specify using comment language to set  `start` and `end` quickly.
+- `language` require `behavior: 'slot'`. Specify using comment language to set  `start` and `end` quickly.
   - `''` slot token `/* data */ /* */`
   - `'html'` slot token `<!-- data --> <!-- -->`
   - `'readme'` slot token `<!-- data --> <!-- -->`
   - `'pascal'` slot token `(* data *) (* *)` or `{ data } { }`
   - `'forth'` slot token `( data ) ()`
   - `'haskell'` slot token `{- data -} {- -}`
+- `removeOnError` default `false`. If `true`, the token will be removed when the data doesn't match or js syntax go wrong. 

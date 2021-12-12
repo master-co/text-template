@@ -31,16 +31,20 @@ export class TextTemplate {
 
         let result = this.text;
 
-        const options = this.options, // for less file size
-            keys = Object.keys(data),
-            values = Object.values(data),
-            getValue = (key: string) => {
-                return new Function(
-                    ...keys,
-                    `
+        const options = this.options; // for less file size
+        const keys = Object.keys(data);
+        const values = Object.values(data);
+        const getValue = (key: string) => {
+            return new Function(
+                ...keys,
+                `
                         return ${key} ?? '';
                     `)(...values);
-            };
+        };
+        const handleError = (token) =>
+            options.removeOnError
+                ? ''
+                : token;
 
         if (options.behavior === 'slot') {
             const slotSEs = options.start && options.end
@@ -49,24 +53,28 @@ export class TextTemplate {
             for (const eachSlotSE of slotSEs) {
                 const start = escapeRegex(eachSlotSE[0]),
                     end = escapeRegex(eachSlotSE[1]);
-                try {
-                    result = result.replace(
-                        new RegExp(start + '(.*?)' + end + '(.*?)' + start + end, 'gms'),
-                        (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
-                } catch {
-
-                }
+                result = result.replace(
+                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + end, 'gms'),
+                    (token, v1: string) => {
+                        try {
+                            return eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]
+                        } catch {
+                            return handleError(token);
+                        }
+                    });
             }
         } else {
             const start = options.start || '{{';
             const end = options.end || '}}';
-            try {
-                result = this.text.replace(
-                    new RegExp(escapeRegex(start) + '(.*?)' + escapeRegex(end), 'gms'),
-                    (_, v1: string) => getValue(v1.trim()));
-            } catch {
-
-            }
+            result = this.text.replace(
+                new RegExp(escapeRegex(start) + '(.*?)' + escapeRegex(end), 'gms'),
+                (token, v1: string) => {
+                    try {
+                        return getValue(v1.trim())
+                    } catch {
+                        return handleError(token);
+                    }
+                });
         }
 
         return result;

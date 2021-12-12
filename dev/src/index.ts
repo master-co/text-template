@@ -1,6 +1,5 @@
 import { TextTemplate } from '../../src/index';
 import marked from 'marked';
-import 'github-markdown-css/github-markdown-dark.css';
 
 import readmeText from 'raw-loader!../../readme.md';
 import masterConfig from '../../master.json';
