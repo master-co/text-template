@@ -10,7 +10,6 @@
     },
     "keywords": [
         "template",
-        "readme",
         "engine",
         "text",
         "string",
@@ -19,6 +18,10 @@
         "comment",
         "slot",
         "html",
+        "readme",
+        "pascal",
+        "forth",
+        "haskell",
         "ejs",
         "handlebars"
     ],

@@ -1,4 +1,4 @@
-export interface TemplateOptions {
+export interface TextTemplateOptions {
     start?: string;
     end?: string;
     language?: 'html' | 'readme' | 'pascal' | 'forth' | 'haskell' | '';

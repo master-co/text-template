@@ -1,4 +1,4 @@
-import { TemplateOptions } from './interfaces/options';
+import { TextTemplateOptions } from './interfaces/options';
 
 const commentSyntaxesMap = {
     pascal: [['(*', '*)'], ['{', '}']],
@@ -14,11 +14,11 @@ function escapeRegex(string) {
 }
 
 export class TextTemplate {
-    options: TemplateOptions = {};
+    options: TextTemplateOptions = {};
 
     constructor(
         private text: string,
-        options?: TemplateOptions
+        options?: TextTemplateOptions
     ) {
         if (options) {
             Object.assign(this.options, options);
@@ -35,15 +35,11 @@ export class TextTemplate {
             keys = Object.keys(data),
             values = Object.values(data),
             getValue = (key: string) => {
-                try {
-                    return new Function(
-                        ...keys,
-                        `
+                return new Function(
+                    ...keys,
+                    `
                         return ${key} ?? '';
                     `)(...values);
-                } catch (ex) {
-                    return '#error#';
-                }
             };
 
         if (options.behavior === 'slot') {
@@ -53,16 +49,24 @@ export class TextTemplate {
             for (const eachSlotSE of slotSEs) {
                 const start = escapeRegex(eachSlotSE[0]),
                     end = escapeRegex(eachSlotSE[1]);
-                result = result.replace(
-                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + end, 'gms'),
-                    (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
+                try {
+                    result = result.replace(
+                        new RegExp(start + '(.*?)' + end + '(.*?)' + start + end, 'gms'),
+                        (_, v1: string) => eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]);
+                } catch {
+
+                }
             }
         } else {
             const start = options.start || '{{';
             const end = options.end || '}}';
-            result = this.text.replace(
-                new RegExp(escapeRegex(start) + '(.*?)' + escapeRegex(end), 'gms'),
-                (_, v1: string) => getValue(v1.trim()));
+            try {
+                result = this.text.replace(
+                    new RegExp(escapeRegex(start) + '(.*?)' + escapeRegex(end), 'gms'),
+                    (_, v1: string) => getValue(v1.trim()));
+            } catch {
+
+            }
         }
 
         return result;
