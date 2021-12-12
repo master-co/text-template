@@ -18,6 +18,7 @@
   - [Combo above behaviors](#combo-above-behaviors)
 - [Custom your `start` and `end` token](#custom-your-start-and-end-token)
 - [Tokenize with js syntax](#tokenize-with-js-syntax)
+- [Remove token when errors occur](#remove-token-when-errors-occur)
 - [Options](#options)
 
 # Install
@@ -122,6 +123,25 @@ const renderedText = template.render(data);
 output `renderedText`
 ```ts
 /* people.join(' ❤️ ') */ Aron ❤️ Joy /* */
+```
+
+# Remove token when errors occur
+`removeOnError: true`
+```ts
+const text = 'Hi {{ username }}';
+const data = {};
+const t1 = new TextTemplate(text);
+const t2 = new TextTemplate(text, { removeOnError: true });
+const t1Result = t1.render(data);
+const t2Result = t2.render(data);
+```
+output `t1Result`
+```
+Hi {{ username }}
+```
+output `t2Result`
+```
+Hi 
 ```
 
 # Options
