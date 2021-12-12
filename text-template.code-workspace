@@ -1,10 +1,28 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../docs/src/app/text-template"
-		}
-	]
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../docs/src/app/text-template"
+        }
+    ],
+    "settings": {
+        "restoreTerminals.terminals": [
+            {
+                "splitTerminals": [
+                    {
+                        "name": "dev",
+                        "commands": []
+                    },
+                    {
+                        "name": "serve",
+                        "commands": [
+                            "npm run serve"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }
