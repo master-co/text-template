@@ -4,4 +4,5 @@ export interface TextTemplateOptions {
     language?: 'html' | 'readme' | 'pascal' | 'forth' | 'haskell' | '';
     behavior?: '' | 'slot';
     removeOnError?: boolean;
+    delimiter?: string;
 };

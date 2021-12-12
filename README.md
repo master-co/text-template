@@ -16,9 +16,10 @@
   - [Replace with data tokens](#replace-with-data-tokens)
   - [Insert with slot tokens](#insert-with-slot-tokens)
   - [Combo above behaviors](#combo-above-behaviors)
-- [Custom your `start` and `end` token](#custom-your-start-and-end-token)
+- [Custom `start` and `end` token](#custom-start-and-end-token)
 - [Tokenize with js syntax](#tokenize-with-js-syntax)
 - [Remove token when errors occur](#remove-token-when-errors-occur)
+- [Custom identification delimiter](#custom-identification-delimiter)
 - [Options](#options)
 
 # Install
@@ -103,7 +104,7 @@ output `renderedReadmeText`:
 <!-- description -->Hello World<!-- -->
 ```
 
-# Custom your `start` and `end` token
+# Custom `start` and `end` token
 ```ts
 const template = new TextTemplate('Hi ${ username }', {
     start: '${',
@@ -144,6 +145,32 @@ output `r2`
 Hi , welcome.
 ```
 
+# Custom identification delimiter
+default
+```ts
+const template = new TextTemplate(html, {
+    behavior: 'slot',
+    language: 'html'
+});
+```
+
+```html
+<title><!-- name --><!-- --></title>
+```
+
+custom
+```ts
+const template = new TextTemplate(html, {
+    behavior: 'slot',
+    language: 'html',
+    delimiter: ' / ' 
+});
+```
+
+```html
+<title><!-- name --><!-- / --></title>
+```
+
 # Options
 - `start` replace or slot start token
 - `end` replace or slot end token
@@ -155,4 +182,5 @@ Hi , welcome.
   - `'pascal'` slot token `(* data *) (* *)` or `{ data } { }`
   - `'forth'` slot token `( data ) ()`
   - `'haskell'` slot token `{- data -} {- -}`
+- `delimiter` default ` `. require behavior: 'slot'. Specify middle delimiter for identifying end
 - `removeOnError` default `false`. If `true`, the token will be removed when the data doesn't match or js syntax go wrong. 

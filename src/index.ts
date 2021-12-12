@@ -50,11 +50,12 @@ export class TextTemplate {
             const slotSEs = options.start && options.end
                 ? [[options.start, options.end]]
                 : commentSyntaxesMap[(options.language in commentSyntaxesMap) ? options.language : ''];
+            const delimiter = escapeRegex(options.delimiter || ' ');
             for (const eachSlotSE of slotSEs) {
                 const start = escapeRegex(eachSlotSE[0]),
                     end = escapeRegex(eachSlotSE[1]);
                 result = result.replace(
-                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + ' ' + end, 'gms'),
+                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + delimiter + end, 'gms'),
                     (token, v1: string) => {
                         try {
                             return eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]
