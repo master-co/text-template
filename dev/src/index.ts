@@ -1,7 +1,7 @@
 import { TextTemplate } from '../../src/index';
 import marked from 'marked';
 
-import readmeText from 'raw-loader!./README.md';
+import readmeText from 'raw-loader!../../README.md';
 import masterConfig from '../../master.json';
 import packageConfig from '../../src/package.json';
 

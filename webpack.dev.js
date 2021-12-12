@@ -17,7 +17,8 @@ module.exports = {
     devServer: {
         watchFiles: [
             './dev/src/**/*',
-            '../src/**/*'
+            '../src/**/*',
+            './README.md'
         ],
     },
     module: {
