@@ -93,15 +93,18 @@ const readmeText = `
 
 const data = {
     username: 'Aron',
-    description: 'Hello World'
+    description: 'Hello World {{ username }}'
 }
 
+// 1. Insert
 const slotTemplate = new TextTemplate(readmeText, {
     behavior: 'slot',
     language: 'readme'
 });
 
+// 2. Replace
 const template = new TextTemplate(slotTemplate.render(data));
+
 const renderedReadmeText = template.render(data);
 ```
 output `renderedReadmeText`:
