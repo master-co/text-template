@@ -13,6 +13,7 @@
   - [CDN](#cdn)
 - [Usage](#usage)
   - [Getting start](#getting-start)
+    - [Behaviors of default options](#behaviors-of-default-options)
   - [Replace with data tokens](#replace-with-data-tokens)
   - [Insert with slot tokens](#insert-with-slot-tokens)
   - [Combo above behaviors](#combo-above-behaviors)
@@ -36,14 +37,19 @@ npm install @master/text-template
 ```ts
 import { TextTemplate } from '@master/text-template';
 ```
-default options overview
+### Behaviors of default [options](#options)
+```ts
+const template = new TextTemplate(text);
+```
+equal to
 ```ts
 const template = new TextTemplate(text, {
-    start: undefined, // '{{'
-    end: undefined, // '}}'
-    behavior: undefined, // replace
-    language: undefined, // /* data */ /* */,
-    removeOnError: undefined // false
+    start: '{{',
+    end: '}}',
+    behavior: '', // replace
+    language: '', // /* data */ /* */,
+    removeOnError: false,
+    delimiter: ' ',
 });
 ```
 
@@ -172,15 +178,15 @@ const template = new TextTemplate(html, {
 ```
 
 # Options
-- `start` replace or slot start token
-- `end` replace or slot end token
-- `behavior` specify render behavior
-- `language` require `behavior: 'slot'`. Specify using comment language to set  `start` and `end` quickly.
-  - `''` slot token `/* data */ /* */`
-  - `'html'` slot token `<!-- data --> <!-- -->`
-  - `'readme'` slot token `<!-- data --> <!-- -->`
-  - `'pascal'` slot token `(* data *) (* *)` or `{ data } { }`
-  - `'forth'` slot token `( data ) ()`
-  - `'haskell'` slot token `{- data -} {- -}`
-- `delimiter` default ` `. require behavior: 'slot'. Specify middle delimiter for identifying end
-- `removeOnError` default `false`. If `true`, the token will be removed when the data doesn't match or js syntax go wrong. 
+The default values of all options are `undefined`, and each has a default behavior.
+- `start` Default `{{`. Replace or slot start token
+- `end` Default `}}`. Replace or slot end token
+- `behavior` Default *replace*. Specify render behavior
+- `language` Required `behavior: 'slot'`. Specify using comment language to set  `start` and `end` quickly.
+  - `''` relative to `/* data */ /* */` as default
+  - `'html'`, `readme` relative to `<!-- data --> <!-- -->`
+  - `'pascal'` relative to `(* data *) (* *)` or `{ data } { }`
+  - `'forth'` relative to `( data ) ()`
+  - `'haskell'` relative to `{- data -} {- -}`
+- `delimiter` Default ` `. Required `behavior: 'slot'`. Specify middle delimiter for identifying end
+- `removeOnError` Default `false`. If `true`, the token will be removed when the data doesn't match or js syntax go wrong. 
