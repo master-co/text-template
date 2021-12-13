@@ -110,7 +110,7 @@ const renderedReadmeText = template.render(data);
 output `renderedReadmeText`:
 ```md
 # Hi Aron
-<!-- description -->Hello World<!-- -->
+<!-- description -->Hello World Aron<!-- -->
 ```
 
 # Custom `start` and `end` token
