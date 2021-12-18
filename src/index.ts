@@ -55,10 +55,10 @@ export class TextTemplate {
                 const start = escapeRegex(eachSlotSE[0]),
                     end = escapeRegex(eachSlotSE[1]);
                 result = result.replace(
-                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + delimiter + end, 'gms'),
+                    new RegExp(start + '(.*?)' + end + '(.*?)' + start + delimiter + end, 'g'),
                     (token, v1: string) => {
                         try {
-                            return eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + eachSlotSE[1]
+                            return eachSlotSE[0] + v1 + eachSlotSE[1] + getValue(v1.trim()) + eachSlotSE[0] + delimiter + eachSlotSE[1]
                         } catch {
                             return handleError(token);
                         }
