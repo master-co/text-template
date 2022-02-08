@@ -4,10 +4,10 @@
     "description": "Tokenize any texts and render with data ( less than 2KB )",
     "main": "index.js",
     "private": false,
-    "funding": "https://opencollective.com/master-style",
+    "funding": "https://opencollective.com/master-co",
     "repository": {
         "type": "git",
-        "url": "https://github.com/master-style/text-template.git"
+        "url": "https://github.com/master-co/text-template.git"
     },
     "keywords": [
         "template",

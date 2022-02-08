@@ -1,7 +1,7 @@
 {
     "name": "text-template",
     "github": {
-        "name": "master-style"
+        "name": "master-co"
     },
     "assets": [
         "src/package.json",
