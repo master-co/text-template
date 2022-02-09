@@ -2,6 +2,7 @@
     "name": "@master/text-template",
     "license": "MIT",
     "description": "Tokenize any texts and render with data ( less than 2KB )",
+    "author": "Aoyue Design LLC.",
     "main": "index.js",
     "private": false,
     "funding": "https://opencollective.com/master-co",
