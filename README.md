@@ -1,4 +1,6 @@
 <br><br>
+<div align="center">
+
 <p align="center">
     <img src="https://raw.githubusercontent.com/master-co/package/document/images/logo-and-text.svg" alt="logo" width="142">
 </p>
@@ -9,6 +11,12 @@
 <p align="center">
 <!-- badges.map((badge) => `<a href="${badge.href}"><img src="${badge.src}" alt="${badge.alt}"></a>`).join('&nbsp;')--><a href="https://circleci.com/gh/master-co/workflows/text-template/tree/main"><img src="https://img.shields.io/circleci/build/github/master-co/text-template/main.svg?logo=circleci&logoColor=fff&label=CircleCI" alt="CI status"></a>&nbsp;<a href="https://www.npmjs.com/@master/text-template"><img src="https://img.shields.io/npm/v/@master/text-template.svg?logo=npm&logoColor=fff&label=NPM&color=limegreen" alt="npm"></a>&nbsp;<a href="https://github.com/master-co/text-template/blob/main/LICENSE"><img src="https://img.shields.io/github/license/master-co/text-template" alt="license"></a><!---->
 </p>
+</div>
+
+On this page
+- [Quick Start](#quick-start)
+  - [1. Download](#1-download)
+  - [2. Import into your js file](#2-import-into-your-js-file)
 
 ###### CONTENTS
 - [Install](#install)
@@ -25,7 +33,7 @@
 - [Custom identification delimiter](#custom-identification-delimiter)
 - [Options](#options)
 
-# Install
+## 1. Download
 ```sh
 npm install @master/text-template
 ```
